@@ -40,7 +40,7 @@ public class CustomerController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout() {
-        // JWT는 서버에서 무효화 불가 - 클라이언트가 토큰을 삭제해야 함
+        // JWT는 서버에서 무효화 불가 - 클라이언트가 토큰을 삭제해야 함//
         return ResponseEntity.ok(Map.of("message", "로그아웃 되었습니다. 클라이언트에서 토큰을 삭제하세요."));
     }
 }
