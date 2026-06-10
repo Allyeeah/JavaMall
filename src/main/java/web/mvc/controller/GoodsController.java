@@ -1,5 +1,6 @@
 package web.mvc.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import web.mvc.domain.Goods;
 import web.mvc.service.GoodsService;
 
+@Tag(name = "상품 API")
 @RestController
 @RequestMapping("/api/goods")
 @RequiredArgsConstructor

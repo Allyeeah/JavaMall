@@ -1,5 +1,6 @@
 package web.mvc.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -12,6 +13,7 @@ import web.mvc.service.OrderService;
 import java.util.List;
 import java.util.Map;
 
+@Tag(name = "주문 API")
 @RestController
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor

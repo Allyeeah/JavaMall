@@ -1,5 +1,6 @@
 package web.mvc.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +14,7 @@ import web.mvc.exception.AddException;
 import web.mvc.service.CustomerService;
 
 import java.util.Map;
-
+@Tag(name = "회원 API")
 @RestController
 @RequestMapping("/api/customers")
 @RequiredArgsConstructor

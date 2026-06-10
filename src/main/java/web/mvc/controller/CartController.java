@@ -1,5 +1,6 @@
 package web.mvc.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Tag(name = "장바구니 API")
 @RestController
 @RequestMapping("/api/cart")
 @RequiredArgsConstructor

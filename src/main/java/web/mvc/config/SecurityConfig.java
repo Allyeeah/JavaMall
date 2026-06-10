@@ -26,14 +26,20 @@ public class SecurityConfig {
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
-            .authorizeHttpRequests(auth -> auth
-                // 회원가입, 로그인은 누구나 접근 가능
-                .requestMatchers("/api/customers/register", "/api/customers/login").permitAll()
-                // 상품 조회는 누구나 가능
-                .requestMatchers(HttpMethod.GET, "/api/goods/**").permitAll()
-                // 나머지는 JWT 인증 필요
-                .anyRequest().authenticated()
-            )
+                .authorizeHttpRequests(auth -> auth
+                        // 회원가입, 로그인은 누구나 접근 가능
+                        .requestMatchers("/api/customers/register", "/api/customers/login").permitAll()
+                        // 상품 조회는 누구나 가능
+                        .requestMatchers(HttpMethod.GET, "/api/goods/**").permitAll()
+                        // Swagger 허용
+                        .requestMatchers(
+                                "/swagger-ui/**",
+                                "/v3/api-docs/**",
+                                "/swagger-ui.html"
+                        ).permitAll()
+                        // 나머지는 JWT 인증 필요
+                        .anyRequest().authenticated()
+                )
             .addFilterBefore(new JwtFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
