@@ -1,0 +1,21 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-javamall
+    environment:
+      MYSQL_ROOT_PASSWORD: root1234
+      MYSQL_DATABASE: javamall
+      MYSQL_USER: jang
+      MYSQL_PASSWORD: jang1234
+    ports:
+      - "3306:3306"
+    restart: always
+
+  app:
+    image: allyeeah/myapp:latest
+    container_name: myapp
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mysql
+    restart: always
