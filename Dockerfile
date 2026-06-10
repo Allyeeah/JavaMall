@@ -1,8 +1,8 @@
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:21-jdk
 
-# 빌드된 JAR 복사
-COPY build/libs/*SNAPSHOT.jar app.jar
+# 빌드된 JAR 복사 (Maven은 target 폴더에 생성됨)
+COPY target/*.jar app.jar
 
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+EXPOSE 9000
 
+ENTRYPOINT ["java", "-jar", "app.jar"]
